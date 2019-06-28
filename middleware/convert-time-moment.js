@@ -8,6 +8,7 @@ module.exports = {
 
 function toTimeZone(time, ampm, zone) {
     const reply = `${time} Lambda Time occurs at`
+    console.log('time', time)
     time = time.split(':')
     if (time[0].length < 2) {
         time[0] = '0' + time[0]
