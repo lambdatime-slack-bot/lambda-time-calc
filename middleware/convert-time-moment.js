@@ -11,7 +11,7 @@ function toTimeZone(time, ampm, zone) {
     console.log('time', time)
     time = time.split(':')
     time[0].padStart(2, 0)
-    if (ampm.toUpperCase() === 'PM' && time[0] <= 12) {
+    if (ampm.toUpperCase() === 'PM' && time[0] < 12) {
         time[0] = parseInt(time[0]) + 12
         time[0] = time[0].toString()
     }
