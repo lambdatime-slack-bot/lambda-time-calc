@@ -6,14 +6,12 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
     // const updatedTime = await TimeConvert.convert(req.body.time, req.body.ampm, req.body.zone)
-    // const newUpdatedTime = await NewTimeConvert.toTimeZone(req.body.time, req.body.ampm, req.body.zone)
+    const [time, ampm, zone] = req.body.text.split(' ')
+    const newUpdatedTime = await NewTimeConvert.toTimeZone(time, ampm, zone)
 
     try {
         // console.log(newUpdatedTime)
-        console.log('req.params.text', req.params.text)
-        console.log('request', req)
-        console.log('req.body.text', req.body.text)
-        res.status(200).json({text: 'hello world'})
+        res.status(200).json({text: newUpdatedTime})
     } 
     catch(error) {
         console.log(error)
