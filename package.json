@@ -1,0 +1,7 @@
+{
+  "name": "slack-time-calc",
+  "version": "1.0.0",
+  "description": "Converts lambda time to your time!",
+  "main": "index.js",
+  "license": "MIT"
+}
