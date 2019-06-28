@@ -10,7 +10,9 @@ router.post('/', async (req, res) => {
 
     try {
         // console.log(newUpdatedTime)
-        console.log(req.params)
+        console.log('req.params.text', req.params.text)
+        console.log('request', req)
+        console.log('req.body.text', req.body.text)
         res.status(200).json({text: 'hello world'})
     } 
     catch(error) {
