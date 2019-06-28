@@ -3,5 +3,19 @@
   "version": "1.0.0",
   "description": "Converts lambda time to your time!",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "helmet": "^3.18.0"
+  },
+  "scripts": {
+    "server": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "nodemon": "^1.19.1"
+  }
 }
