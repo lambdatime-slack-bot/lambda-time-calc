@@ -7,6 +7,7 @@ const server = express();
 
 server.use(helmet());
 server.use(express.json());
+server.use(express.urlencoded());
 server.use(cors())
 
 server.use('/api/slack', slackRouter)
