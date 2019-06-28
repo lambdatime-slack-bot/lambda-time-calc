@@ -5,7 +5,7 @@ module.exports = {
 }
 
 function convert (time, ampm, zone) {
-    const reply = `${time} Lambda Time occors at`
+    const reply = `${time} Lambda Time occurs at`
 
     let numbers = time.split(':')
     if (numbers[1]) {
