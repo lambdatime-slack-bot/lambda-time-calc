@@ -6,15 +6,22 @@ module.exports = {
 }
 
 
-function toTimeZone(time, ampm, zone) {
+function toTimeZone(time, ampm, zone, type) {
     const reply = `${time} Lambda Time occurs at`
+
     time = time.split(':')
-    time[0].padStart(2, 0)
-    if (ampm.toUpperCase() === 'PM' && time[0] < 12) {
+    if (time[0].length < 2 ) {
+        time = 0 + time
+    }
+    if (type === 'regularTime' && ampm.toUpperCase() === 'PM' && time[0] < 12) {
         time[0] = parseInt(time[0]) + 12
         time[0] = time[0].toString()
     }
-    time = time.join(':')
+    else if (type === 'militaryTime') {
+        time[0] = time[0].toString()
+
+    }
+    time = time[1] ? time : time.join(':')
     let newTime = moment().isDST() ? moment.tz("1970-06-01 " + time , 'America/Los_Angeles') : moment.tz("1970-01-01 " + time , 'America/Los_Angeles')
 
     switch(zone.toLowerCase()) {

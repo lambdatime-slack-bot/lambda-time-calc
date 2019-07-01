@@ -5,10 +5,10 @@ const FormatCheck = require('../middleware/formatCheck')
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-    const [time, ampm, zone] = req.body.text.split(' ')
     const formatCheck = await FormatCheck.formatCheck(req.body.text)
-    if (formatCheck === true) {
-        const newUpdatedTime = await NewTimeConvert.toTimeZone(time, ampm, zone)
+    console.log(formatCheck)
+    if (formatCheck.type === 'militaryTime' || formatCheck.type === 'regularTime') {
+        const newUpdatedTime = await NewTimeConvert.toTimeZone(formatCheck.time, formatCheck.ampm, formatCheck.zone, formatCheck.type)
 
         try {
             res.status(200).json({text: newUpdatedTime})
