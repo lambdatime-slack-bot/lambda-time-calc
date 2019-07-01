@@ -8,7 +8,6 @@ module.exports = {
 
 function toTimeZone(time, ampm, zone) {
     const reply = `${time} Lambda Time occurs at`
-    console.log('time', time)
     time = time.split(':')
     time[0].padStart(2, 0)
     if (ampm.toUpperCase() === 'PM' && time[0] < 12) {
@@ -18,15 +17,15 @@ function toTimeZone(time, ampm, zone) {
     time = time.join(':')
     let newTime = moment.tz("1970-01-01 " + time , 'America/Los_Angeles')
 
-    if (zone.toLowerCase() === 'mst') {
+    if (zone.toLowerCase() === 'mdt') {
         newTime = newTime.tz('America/Denver').format('h:mma z')
         return `${reply} ${newTime}`
     }
-    else if (zone.toLowerCase() === "cst" ) {
+    else if (zone.toLowerCase() === "cdt" ) {
         newTime = newTime.tz('America/Chicago').format('h:mma z')
         return `${reply} ${newTime}`
     }
-    else if (zone.toLowerCase() === "est" ) {
+    else if (zone.toLowerCase() === "edt" ) {
         newTime = newTime.tz('America/New_York').format('h:mma z')
         return `${reply} ${newTime}`
     }
