@@ -18,8 +18,9 @@ function toTimeZone(time, ampm, zone) {
     let newTime = moment.tz("1970-06-01 " + time , 'America/Los_Angeles')
 
     if (zone.toLowerCase() === 'mdt') {
+        phoenixNewTime = newTime.tz('America/Phoenix').format('h:mma z')
         newTime = newTime.tz('America/Denver').format('h:mma z')
-        return `${reply} ${newTime}`
+        return `${reply} ${newTime} Note: If you are in Phoenix, your time is actually ${phoenixNewTime}`
     }
     else if (zone.toLowerCase() === "cdt" ) {
         newTime = newTime.tz('America/Chicago').format('h:mma z')
