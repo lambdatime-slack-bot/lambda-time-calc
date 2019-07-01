@@ -17,7 +17,7 @@ function toTimeZone(time, ampm, zone, type) {
     }
     time[0] = time[0].toString()
     time = time.join(':')
-    let newTime = moment().isDST() ? moment.tz("1970-06-01 " + time , 'America/Los_Angeles') : moment.tz("1970-01-01 " + time , 'America/Los_Angeles')
+    let newTime = moment.tz(Date.now(), 'America/Los_Angeles').isDST() ? moment.tz("1970-06-01 " + time , 'America/Los_Angeles') : moment.tz("1970-01-01 " + time , 'America/Los_Angeles')
 
     switch(zone.toLowerCase()) {
         case 'mdt':
