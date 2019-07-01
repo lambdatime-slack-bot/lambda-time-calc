@@ -6,7 +6,6 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
     const formatCheck = await FormatCheck.formatCheck(req.body.text)
-    console.log(formatCheck)
     if (formatCheck.type === 'militaryTime' || formatCheck.type === 'regularTime') {
         const newUpdatedTime = await NewTimeConvert.toTimeZone(formatCheck.time, formatCheck.ampm, formatCheck.zone, formatCheck.type)
 
