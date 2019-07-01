@@ -20,7 +20,7 @@ function toTimeZone(time, ampm, zone) {
     if (zone.toLowerCase() === 'mdt') {
         phoenixNewTime = newTime.tz('America/Phoenix').format('h:mma z')
         newTime = newTime.tz('America/Denver').format('h:mma z')
-        return `${reply} ${newTime} Note: If you are in Phoenix, your time is actually ${phoenixNewTime}`
+        return `${reply} ${newTime} Note: If you are in Phoenix, Lambda Time actually occurs at ${phoenixNewTime}`
     }
     else if (zone.toLowerCase() === "cdt" ) {
         newTime = newTime.tz('America/Chicago').format('h:mma z')
