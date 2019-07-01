@@ -12,7 +12,7 @@ function formatCheck(input) {
         return {type: 'regularTime', time, ampm, zone}
     }
 
-    else if (/\d\d:\d\d ..t/g.test(input) || (/^\d\d ..t/g).test(input) || (/\d ..t/g)) {
+    else if (/\d\d:\d\d ..t/g.test(input) || (/^\d\d ..t/g).test(input) || (/\d ..t/g).test(input)) {
         militaryTime = true
         const [time, zone] = input.split(' ')
         return {type: 'militaryTime', time, zone}
