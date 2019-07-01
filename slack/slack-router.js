@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
         }
     }
     else {
-        res.status(422).json({text: "Please check format. Input should be shaped like this: 12:00 pm edt"})
+        res.status(200).json({text: "Please check format. Input should be shaped like this: 12:00 pm edt"})
     }
 })
 
