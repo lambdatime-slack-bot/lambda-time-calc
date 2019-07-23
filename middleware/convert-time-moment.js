@@ -9,6 +9,10 @@ module.exports = {
 function toTimeZone(time, ampm, zone, type) {
     const reply = `${time} Lambda Time occurs at`
 
+    if (!time) {
+        return `It is currently ${moment.tz(Date.now(), 'America/Los_Angeles').format('h:mma')} Lambda Time`
+    }
+
     time = time.split(':')
     time[0] = time[0].padStart(2, 0)
     if (type === 'regularTime' && ampm.toUpperCase() === 'PM' && time[0] < 12) {
